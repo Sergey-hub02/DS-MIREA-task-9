@@ -3,11 +3,11 @@
  * @param str           строка, в которой происходит поиск
  * @param substr        подстрока
  */
-export const findFirst = (str: string, substr: string): number => {
-  for (let i: number = 0; i < str.length - substr.length + 1; ++i) {
-    const sub: string = str.substr(i, substr.length);
+const findFirst = (str: string, substr: string): number => {
+  const words: Array<string> = str.split(" ");
 
-    if (sub === substr) {
+  for (let i: number = 0; i < words.length; ++i) {
+    if (words[i] === substr) {
       return i;
     }
   }
@@ -21,15 +21,26 @@ export const findFirst = (str: string, substr: string): number => {
  * @param str          строка, в которой происходит поиск
  * @param substr       подстрока
  */
-export const findLast = (str: string, substr: string): number => {
-  for (let i: number = str.length - 1; i >= substr.length - 1; --i) {
-    const subIndex: number = i - substr.length + 1;
-    const sub: string = str.substr(subIndex, substr.length);
+const findLast = (str: string, substr: string): number => {
+  const words: Array<string> = str.split(" ");
 
-    if (sub === substr) {
-      return subIndex;
+  for (let i: number = words.length - 1; i >= 0; --i) {
+    if (words[i] === substr) {
+      return i;
     }
   }
 
   return -1;
+}
+
+
+/**
+ * Удаляет слова в предложении, встретившиеся более одного раза
+ * @param str       предложение
+ */
+export const task1 = (str: string): string => {
+  return str
+    .split(" ")
+    .filter((word: string) => findFirst(str.toLowerCase(), word.toLowerCase()) === findLast(str.toLowerCase(), word.toLowerCase()))
+    .join(" ");
 }

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-import { findFirst, findLast } from "./includes/tasks";
+import { task1 } from "./includes/tasks";
 import { _INPUT_FILE_NAME, _PATH_TO_INPUT_FILE_ } from "./constants";
 
 // Подобие стандартного потока ввода
@@ -11,16 +11,10 @@ const _STDIN_: string = fs.readFileSync(_PATH_TO_INPUT_FILE_ + _INPUT_FILE_NAME,
  * Основная функция
  */
 const main = async (): Promise<void> => {
-  const [sentence, substring] = _STDIN_.split("\n");
+  const sentence: string = _STDIN_;
 
-  const first: number = findFirst(sentence, substring);
-  const last: number = findLast(sentence, substring);
-
-  console.log(`Предложение: ${sentence}`);
-  console.log(`Нужно найти: ${substring}`);
-
-  console.log(`Индекс первого вхождения: ${first}`);
-  console.log(`Индекс последнего вхождения: ${last}`);
+  console.log(`Изначальное предложение: ${sentence}`);
+  console.log(`После удалений: ${task1(sentence)}`);
 }
 
 
