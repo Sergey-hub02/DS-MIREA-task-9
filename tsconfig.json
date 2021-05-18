@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "outDir": "./dist",
+    "module": "CommonJS",
+    "sourceMap": true,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "moduleResolution": "Node",
+
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "./src/**.*.ts"
+  ]
+}

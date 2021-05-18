@@ -1,0 +1,9 @@
+{
+  "name": "ds-mirea-task-9",
+  "main": "./dist/index.js",
+  "author": "s.park19080@gmail.com",
+  "devDependencies": {
+    "@types/node": "^15.3.0",
+    "typescript": "^4.2.4"
+  }
+}
