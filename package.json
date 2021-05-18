@@ -2,8 +2,13 @@
   "name": "ds-mirea-task-9",
   "main": "./dist/index.js",
   "author": "s.park19080@gmail.com",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^15.3.0",
     "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js"
   }
 }
