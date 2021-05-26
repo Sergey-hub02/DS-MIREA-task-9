@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-import { task2 } from "./includes/tasks";
+import { task1 } from "./includes/tasks";
 import { _INPUT_FILE_NAME, _PATH_TO_INPUT_FILE_ } from "./constants";
 
 // Подобие стандартного потока ввода
@@ -11,10 +11,13 @@ const _STDIN_: string = fs.readFileSync(_PATH_TO_INPUT_FILE_ + _INPUT_FILE_NAME,
  * Основная функция
  */
 const main = async (): Promise<void> => {
-  const [sentence, word] = _STDIN_.split("\n");
+  const sentence: string = _STDIN_;
 
-  console.log(`Изначальное предложение: ${sentence}`);
-  console.log(`После удалений: ${task2(sentence, word)}`);
+  console.log(`Предложение до обработки: ${sentence}`);
+
+  console.time("label");
+  console.log(`Предложение после обработки: ${task1(sentence)}`);
+  console.timeEnd("label");
 }
 
 

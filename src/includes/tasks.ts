@@ -4,10 +4,10 @@
  * @param substr        подстрока
  */
 const findFirst = (str: string, substr: string): number => {
-  const words: Array<string> = str.split(" ");
+  for (let i: number = 0; i < str.length - substr.length + 1; ++i) {
+    const sub: string = str.substr(i, substr.length);
 
-  for (let i: number = 0; i < words.length; ++i) {
-    if (words[i] === substr) {
+    if (sub === substr) {
       return i;
     }
   }
@@ -22,11 +22,12 @@ const findFirst = (str: string, substr: string): number => {
  * @param substr       подстрока
  */
 const findLast = (str: string, substr: string): number => {
-  const words: Array<string> = str.split(" ");
+  for (let i: number = str.length - 1; i >= substr.length - 1; --i) {
+    const subStartIndex: number = i - substr.length + 1;
+    const sub: string = str.substr(subStartIndex, substr.length);
 
-  for (let i: number = words.length - 1; i >= 0; --i) {
-    if (words[i] === substr) {
-      return i;
+    if (sub === substr) {
+      return subStartIndex;
     }
   }
 
