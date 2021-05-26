@@ -66,7 +66,7 @@ const prefixFunction = (str: string): Array<number> => {
  * @param str           строка, в которой происходит поиск
  * @param substr        подстрока
  */
-const knuthMorisPratt = (str: string, substr: string): number => {
+export const knuthMorisPratt = (str: string, substr: string): number => {
   let k: number = 0;
   let index: number = -1;
   let prefixArray: Array<number> = prefixFunction(substr);
@@ -111,7 +111,7 @@ export const task2 = (str: string, word: string): string => {
   for (let i: number = 0; i < str.length; ++i) {
     const result: number = knuthMorisPratt(str, word);
 
-    if (result > 0) {
+    if (result >= 0) {
       str = str.slice(0, result) + str.slice(result + word.length, str.length);
       continue;
     }

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-import { task1 } from "./includes/tasks";
+import { knuthMorisPratt } from "./includes/tasks";
 import { _INPUT_FILE_NAME, _PATH_TO_INPUT_FILE_ } from "./constants";
 
 // Подобие стандартного потока ввода
@@ -16,7 +16,7 @@ const main = async (): Promise<void> => {
   console.log(`Предложение до обработки: ${sentence}`);
 
   console.time("label");
-  console.log(`Предложение после обработки: ${task1(sentence)}`);
+  console.log(`Первое вхождение amet: ${knuthMorisPratt(sentence, "amet")}`);
   console.timeEnd("label");
 }
 
