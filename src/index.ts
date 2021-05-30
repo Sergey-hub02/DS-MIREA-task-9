@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-import { knuthMorisPratt } from "./includes/tasks";
+import { task3 } from "./includes/tasks";
 import { _INPUT_FILE_NAME, _PATH_TO_INPUT_FILE_ } from "./constants";
 
 // Подобие стандартного потока ввода
@@ -11,13 +11,13 @@ const _STDIN_: string = fs.readFileSync(_PATH_TO_INPUT_FILE_ + _INPUT_FILE_NAME,
  * Основная функция
  */
 const main = async (): Promise<void> => {
-  const sentence: string = _STDIN_;
+  const strLength: number = +_STDIN_;
 
-  console.log(`Предложение до обработки: ${sentence}`);
+  console.time("counting");
+  const subStrings: bigint = task3(strLength);
+  console.timeEnd("counting");
 
-  console.time("label");
-  console.log(`Первое вхождение amet: ${knuthMorisPratt(sentence, "amet")}`);
-  console.timeEnd("label");
+  console.log(`Для строки длинной ${strLength} существует ${subStrings} различных подстрок`);
 }
 
 

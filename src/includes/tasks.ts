@@ -62,6 +62,31 @@ const prefixFunction = (str: string): Array<number> => {
 
 
 /**
+ * Считает факториал для заданного числа
+ * @param n           число, факториал которого нужно вычислить
+ */
+const factorial = (n: number): bigint => {
+  let fact: bigint = 1n;
+
+  for (let i: number = 2; i <= n; ++i) {
+    fact *= BigInt(i);
+  }
+
+  return fact;
+}
+
+
+/**
+ * Подсчитывает число размещений из n элементов по k
+ * @param n         количество элементов во множестве
+ * @param k         количество элементов в комбинации
+ */
+const countPlacements = (n: number, k: number): bigint => {
+  return factorial(n) / factorial(n - k);
+}
+
+
+/**
  * Реализует алгоритм Кнута-Мориса-Пратта
  * @param str           строка, в которой происходит поиск
  * @param substr        подстрока
@@ -118,4 +143,19 @@ export const task2 = (str: string, word: string): string => {
   }
 
   return str;
+}
+
+
+/**
+ * Возвращает количество различных подстрок строки длинной length
+ * @param length        количество символов в строке
+ */
+export const task3 = (length: number): bigint => {
+  let countSubStrings: bigint = BigInt(length);
+
+  for (let k: number = 2; k <= length; ++k) {
+    countSubStrings += countPlacements(length, k);
+  }
+
+  return countSubStrings;
 }
